@@ -13,7 +13,9 @@ def handle(c):
     try:
         d = c.recv(4096)
         if not d: c.close(); return
-        if d.startswith(b"GET / ") or d.startswith(b"GET /health "):
+        h = d.split(b" ")[0]
+        p = d.split(b" ")[1] if len(d.split(b" ")) > 1 else b""
+        if h in (b"GET", b"HEAD") and p in (b"/", b"/health"):
             c.sendall(b"HTTP/1.1 200 OK\r\nContent-Length: 2\r\nConnection: close\r\n\r\nOK")
             c.close(); return
         l = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -29,12 +31,11 @@ def handle(c):
                     d.sendall(b)
             except: pass
             finally:
-                for x in (s, d):
-                    try: x.close()
-                    except: pass
+                try: s.close()
+                except: pass
         t1 = threading.Thread(target=f, args=(l, c), daemon=True)
         t2 = threading.Thread(target=f, args=(c, l), daemon=True)
-        t1.start(); t2.start(); t1.join()
+        t1.start(); t2.start(); t1.join(); t2.join()
     except:
         try: c.close()
         except: pass

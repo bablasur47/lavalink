@@ -66,7 +66,7 @@ lavasrc:
     - "ytsearch:%QUERY%"    # Falls back to traditional search string matching
   sources:
     spotify: true
-    applemusic: true
+    applemusic: false
     deezer: false
     yandexmusic: false
     flowerytts: false
@@ -75,11 +75,8 @@ lavasrc:
     clientId: "YOUR_SPOTIFY_CLIENT_ID"
     clientSecret: "YOUR_SPOTIFY_CLIENT_SECRET"
     countryCode: "US"
-    playlistLoadLimit: 6 # Pulls up to 600 tracks per playlist link
+    playlistLoadLimit: 6
     albumLoadLimit: 6
-  applemusic:
-    countryCode: "US"
-    mediaAPIToken: "" # Leave empty unless using proprietary developer Apple subscription
 
 # 3. SponsorBlock Configuration
 sponsorblock:
