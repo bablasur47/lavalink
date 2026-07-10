@@ -64,8 +64,8 @@ lavasrc:
     flowerytts: false
     vkmusic: false
   spotify:
-    clientId: "YOUR_SPOTIFY_CLIENT_ID"
-    clientSecret: "YOUR_SPOTIFY_CLIENT_SECRET"
+    clientId: "53b9829a2faa4b6fa505e1b8274c6e3d"
+    clientSecret: "3f7a1bd48d40464c87ce5a4cac16f400"
     countryCode: "US"
     playlistLoadLimit: 6
     albumLoadLimit: 6
