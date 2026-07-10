@@ -14,9 +14,9 @@ server:
 lavalink:
   pluginsDir: "./plugins"
   server:
-    password: "YourStrongPasswordHere" # Change this to secure your node connection
+    password: "YourStrongPasswordHere"
     sources:
-      youtube: false      # Set to false because dev.lavalink.youtube plugin replaces it
+      youtube: false
       bandcamp: true
       soundcloud: true
       twitch: true
@@ -45,12 +45,6 @@ lavalink:
     soundcloudSearchEnabled: true
     gc-warnings: true
 
-# ==============================================================================
-# PLUGIN-SPECIFIC CONFIGURATION BLOCKS
-# ==============================================================================
-
-# 1. YouTube Plugin Settings
-# If your node gets hit with 429 rate limits, paste your account oauth refresh token below
 youtube:
   potoken: ""
   visitorData: ""
@@ -58,12 +52,10 @@ youtube:
   #   refreshToken: "your_refresh_token_here"
   #   skipInitialization: false
 
-# 2. LavaSrc Plugin Settings (Spotify, Apple Music, etc.)
-# Get your credentials at https://developer.spotify.com/dashboard
 lavasrc:
   providers:
-    - "ytsearch:\"%ISRC%\"" # Looks up metadata via precise ISRC registry first
-    - "ytsearch:%QUERY%"    # Falls back to traditional search string matching
+    - "ytsearch:\"%ISRC%\""
+    - "ytsearch:%QUERY%"
   sources:
     spotify: true
     applemusic: false
@@ -78,7 +70,6 @@ lavasrc:
     playlistLoadLimit: 6
     albumLoadLimit: 6
 
-# 3. SponsorBlock Configuration
 sponsorblock:
   categories:
     - "sponsor"
@@ -87,10 +78,6 @@ sponsorblock:
     - "interaction"
     - "selfpromo"
     - "music_offtopic"
-
-# ==============================================================================
-# LOGGING & CORE METRICS
-# ==============================================================================
 
 metrics:
   prometheus:
