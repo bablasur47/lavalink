@@ -9,8 +9,6 @@ WORKDIR /opt/Lavalink
 
 COPY application.yml /opt/Lavalink/application.yml
 
-RUN java -jar Lavalink.jar --plugins-only || true
-
 COPY server.py /opt/Lavalink/server.py
 
 ENTRYPOINT ["python3", "/opt/Lavalink/server.py"]
